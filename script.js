@@ -27,9 +27,19 @@ const openModal = function () {
 //Refactored is above this one
 
 for (let i = 0; i < btnShowModal.length; i++)
-  btnShowModal[i].addEventListener('click', openModal)
+  btnShowModal[i].addEventListener('click', openModal);
 
 //Function refactored applied to close Modal when clicked in the X of the box, and in the outside part of the box
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+
+//it will show which key is pressed in the console
+//it will turn hidden to box and overlay off if Escape key is the pressed key
+
+document.addEventListener('keydown', function (e) {
+  // console.log(e.key)
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
